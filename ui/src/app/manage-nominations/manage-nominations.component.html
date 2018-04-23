@@ -1,0 +1,26 @@
+<div class="col-md-10 col-md-offset-1">
+  <h2>Manage-Nominations</h2>
+  <table class="table table-striped ">
+    <th>Nomination ID</th>
+    <th>Election ID</th>
+    <th>User ID</th>
+    <tr *ngFor="let n of nomineeList">
+      <td>{{n.NominationId}}</td>
+      <td>{{n.ElectionId.ElectionId}}</td>
+      <td>{{n.UserId.email}}</td>
+      <td>{{n.Party}}</td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="approveNomination(n.NominationId)">Approve</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="rejectNomination(n.NominationId)">Reject</button>
+      </td>
+    </tr>
+
+
+  </table>
+
+  <br />
+  <a [routerLink]="['../']" class="btn btn-link">Back</a>
+
+</div>

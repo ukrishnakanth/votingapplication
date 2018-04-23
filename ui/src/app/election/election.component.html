@@ -1,0 +1,33 @@
+<div class="row">
+    <h2 class="page-header">Current Elections</h2>
+</div>
+<div class="row">
+
+    <div class="col-sm-4" *ngFor="let item of election">
+        <div class="election-card">
+            <div class="head">
+                <div class="row">
+                    <div class="col-sm-2">{{item.ElectionId}}</div>
+                    <div class="col-sm-2">{{item.ConstituencyId.constituencyId}}</div>
+                    <div class="col-sm-12">{{item.ConstituencyId.constituencyName}}</div>
+                    <!-- <div class="col-sm-8">{{item.NominationDate}}</div> -->
+                </div>
+            </div>
+            <div class="foot">
+                <div class="text-center" *ngIf="item.ElectionStatus==0">
+                    <a [routerLink]="['../dashboard']">Show Results</a>
+                </div>
+                <div class="text-center" *ngIf="item.ElectionStatus==1">
+                    <a [routerLink]="['../ballot',item._id]" (click)="selectedElection(item._id)">Ballot Box</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<router-outlet></router-outlet>

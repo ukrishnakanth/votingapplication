@@ -1,0 +1,24 @@
+a {
+    color: white;
+}
+
+.election-card{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 12px 0px;
+    height: 149px;
+    background: #337ab7;
+    border-radius: 7px;
+}
+
+.election-card .head{
+    background-color: white;
+    width: 100%;
+    padding: 10px;    
+}
+
+.election-card .foot{
+    width: 100%;
+    background-color: #337ab7;
+    padding: 2px;
+
+}

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Adjudicator Home Page</h3>
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-lg-4 col-md-6" *ngFor="let adjAction of adjActions; let first = first; let last = last">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x" *ngIf="first"></i>
+                        <i class="fa fa-support fa-5x" *ngIf="!first && !last"></i>
+                        <i class="fa fa-comments fa-5x" *ngIf="last"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge clickable" [routerLink]="[adjAction.actionLink]">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                        <div class="text-uppercase">{{adjAction.action}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="mv-tile" *ngFor="let adjAction of adjActions" title="{{adjAction.action}}">
+    <a [routerLink]="[adjAction.actionLink]">{{adjAction.action}}</a>
+</div> -->
+
+<br />
+
+<!-- <router-outlet></router-outlet> -->

@@ -1,0 +1,51 @@
+<div class="row">
+  <h2 class="page-header">
+    Create Election
+  </h2>
+</div>
+
+<div class="col-md-6 col-md-offset-3">
+
+
+
+  <form name="create-election-form" (ngSubmit)="f.form.valid && createElection()" #f="ngForm" novalidate>
+
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !constituency.valid }">
+      <label for="constituency">Select Constituency</label>
+      <select id="constituency" class="form-control" name="constituency" class="form-control" [(ngModel)]="model.ConstituencyId"
+        #constituency="ngModel" required>
+        <option *ngFor="let con of constList" [ngValue]="con._id">{{con.constituencyName}}</option>
+      </select>
+      <div *ngIf="f.submitted && !constituency.valid" class="help-block">constituency is required</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !nominationDt.valid }">
+      <label for="nominationDt">Last Date for Nominations</label>
+      <input type="date" class="form-control" name="nominationDt" [(ngModel)]="model.nominationDt" #nominationDt="ngModel" required
+      />
+      <div *ngIf="f.submitted && !nominationDt.valid" class="help-block">Date is required</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !pollingDt.valid }">
+      <label for="pollingDt">Polling Date</label>
+      <input type="date" class="form-control" name="pollingDt" [(ngModel)]="model.pollingDt" #pollingDt="ngModel" required />
+      <div *ngIf="f.submitted && !pollingDt.valid" class="help-block">Date is required</div>
+      <div *ngIf="nominationDt.value > pollingDt.value" class="help-block"> Polling Date should be beyond Nominations Date  </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !resultsDt.valid }">
+      <label for="resultsDt">Results Date</label>
+      <input type="date" class="form-control" name="resultsDt" [(ngModel)]="model.resultsDt" #resultsDt="ngModel" required />
+      <div *ngIf="f.submitted && !resultsDt.valid" class="help-block">Date is required</div>
+      <div *ngIf="pollingDt.value > resultsDt.value" class="help-block"> Results Date should be beyond Polling Date  </div>
+    </div>
+
+
+    <button class="btn btn-primary default pull-right">Create Election</button>
+    <a [routerLink]="['../']" class="btn btn-link">Cancel</a>
+
+
+
+
+  </form>
+</div>

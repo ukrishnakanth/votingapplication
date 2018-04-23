@@ -1,0 +1,51 @@
+﻿<!-- <div style="height:260;width:960">
+    <h3> &nbsp;&nbsp;dashboard</h3>
+    <svg width="960" height="500"></svg>
+
+</div> -->
+<div class="container">
+    <div class="row">
+        <h2 class="page-header">Dashboard</h2>
+    </div>
+
+    <!-- <div class="col-sm-4">
+        <h4>Concluded Elections</h4>
+        <br />
+        <table class="table table-hover">
+            <th>Constituency</th>
+            <th>ElectionID</th>
+            <th>Polling Date</th>
+            <tr (click)="selectedElection(item._id)" *ngFor="let item of closedElections">
+                <td>{{item.ConstituencyId.constituencyName}}</td>
+                <td>{{item.ElectionId}}</td>
+                <td>{{item.pollingDt}}</td>
+            </tr>
+
+
+        </table>
+    </div>
+    <div class="col-sm-4">
+        <h4>Results</h4>
+        <br />
+        <table class="table table-striped">
+            <th>Party</th>
+            <th>Number of Votes</th>
+            <tr *ngFor="let c of pollResults">
+                <td>{{c._id}}</td>
+                <td>{{c.count}}</td>
+            </tr>
+
+        </table>
+
+    </div> -->
+
+
+    <div style="display: block">
+        <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+</div>
